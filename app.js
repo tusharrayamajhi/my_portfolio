@@ -58,8 +58,8 @@ app.get("/certificate",(req,res)=>{
     res.render("templete/certificate.ejs")
 })
 
-app.get("/portfolio/suduko",(req,res)=>{
-    res.render("templete/suduko.ejs");
+app.get("/portfolio/sudoku",(req,res)=>{
+    res.render("templete/sudoku.ejs");
 })
 app.get("/admin",wrapAsync(async(req,res)=>{
     let datas = await message.find({});
