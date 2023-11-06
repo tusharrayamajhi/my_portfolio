@@ -1,0 +1,77 @@
+body{
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+.bodycontainer{
+    flex: 1 !important;
+   
+    font-family: 'Abril Fatface', serif !important;
+   font-family: 'Exo 2', sans-serif !important;
+}
+.navbar{
+    height: 5rem;
+    background-color: #ffffff !important;
+    z-index: 1 !important;
+}
+.nav-link{
+    color: #222222 !important;
+}
+footer{
+    background-color:rgb(237, 236, 236);
+}
+.footer div{
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer .copy{
+    font-size: 1rem;
+}
+.f-info-social i{
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+.f-info-links a{
+ text-decoration: none;
+ color: #000000;
+ margin-left: 0.5rem;
+ font-size: 1.1rem;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-card-show-link{
+    text-decoration: none;
+}
+.img-thumbnail{
+    height: 30rem !important;
+    width: 20rem !important;
+    border-radius: 5px;
+}
+.col{
+    width: 30rem !important;
+}
+.spans{
+    font-weight: 700;
+    color: crimson;
+}
+.card-info{
+    height: 50% !important;
+    width: 100% !important;
+}
+.about-list li{
+    text-decoration: none !important;
+}
+.card-logo{
+    font-size: 5rem;
+}
+.card-logo i{
+    margin: 3rem;
+}
+@media (max-width:480px) {
+    .show ul li a{
+        background-color: white !important;
+    }
+}
