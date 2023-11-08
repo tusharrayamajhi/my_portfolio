@@ -12,7 +12,7 @@ const ExpressError = require("./utils/expresserror.js");
 const wrapAsync = require("./utils/wrapAsync.js");
  
 async function main(){
-    mongoose.connect(`${process.env.ATLAS_URL}`)
+    mongoose.connect("mongodb://127.0.0.1:27017/personal")
 }
 main().then(()=>{
     console.log("database connected")
