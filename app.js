@@ -10,8 +10,11 @@ const ejsMate = require("ejs-mate");
 const message = require("./models/user.js");
 const ExpressError = require("./utils/expresserror.js");
 const wrapAsync = require("./utils/wrapAsync.js");
- 
+const session = require("express-session");
+const flash = require("connect-flash");
+
 async function main(){
+    //mongodb://127.0.0.1:27017/test
     mongoose.connect(`${process.env.ATLAS_URL}`);
 }
 main().then(()=>{
@@ -31,6 +34,17 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejsMate);
 
 
+app.use(flash());
+app.use(session({
+    secret:process.env.EXPRESS_SESSION_SECRET,
+    resave:false,
+    saveUninitialized:true,
+    cookie:{
+        expires:Date.now() + 1 * 24 * 60 * 60 * 1000,
+        maxAge:1 * 24 * 60 * 60 * 1000,
+        httpOnly:true
+    }
+}));
 
 
 
@@ -46,9 +60,11 @@ let data = new message({
     message:req.body.message
 })
 await data.save()
+req.flash("sucess","message sent sucessfull");
 res.redirect("/contact");
 }))
 app.get("/contact",(req,res)=>{
+    res.locals.sucess = req.flash("sucess");
     res.render("templete/contact.ejs")
 })
 app.get("/portfolio",(req,res)=>{
