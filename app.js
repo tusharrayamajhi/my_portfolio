@@ -14,7 +14,8 @@ const session = require("express-session");
 const flash = require("connect-flash");
 
 async function main(){
-    //mongodb://127.0.0.1:27017/test
+    // ${process.env.ATLAS_URL}
+    // mongodb://127.0.0.1:27017/personal
     mongoose.connect(`${process.env.ATLAS_URL}`);
 }
 main().then(()=>{
