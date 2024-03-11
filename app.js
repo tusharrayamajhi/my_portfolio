@@ -16,7 +16,7 @@ const flash = require("connect-flash");
 async function main(){
     // ${process.env.ATLAS_URL}
     // mongodb://127.0.0.1:27017/personal
-    mongoose.connect(`${process.env.ATLAS_URL}`);
+    await mongoose.connect(`${process.env.ATLAS_URL}`);
 }
 main().then(()=>{
     console.log("database connected")
